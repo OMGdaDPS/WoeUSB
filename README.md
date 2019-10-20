@@ -81,8 +81,8 @@ $ sudo make install
 ```
 
 #### Build & Install on Debian and Ubuntu based Distros
-I just thought that I would add this small tutorial that the AWESOME @Thomashighbaugh showed me, to help the users that are cofused as to what to do with the source code, and how to build it. This is for Debian and Ubuntu based Distros of course
-Build & Install WoeUSB
+I just thought that I would add this small tutorial that the AWESOME @Thomashighbaugh showed me, to help the users that are confused as to what to do with the source code, and how to build it. This is for Debian and Ubuntu based Distros of course
+
 
 # For Debian and Ubuntu based distributions
 $ sudo apt-get update 
