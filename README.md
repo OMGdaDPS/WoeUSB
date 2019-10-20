@@ -80,5 +80,57 @@ $ make
 $ sudo make install
 ```
 
+#### Build & Install on Debian and Ubuntu based Distros
+I just thought that I would add this small tutorial that the AWESOME @Thomashighbaugh showed me, to help the users that are cofused as to what to do with the source code, and how to build it. This is for Debian and Ubuntu based Distros of course
+Build & Install WoeUSB
+
+# For Debian and Ubuntu based distributions
+$ sudo apt-get update 
+
+$ sudo apt-get upgrade -y 
+
+$ sudo apt-get install devscripts equivs gdebi-core git
+
+$ git clone https://github.com/slacka/WoeUSB
+
+$ cd WoeUSB  
+
+# Run the provided script to set up the development environment
+$ bash setup-development-environment.bash
+
+# Now We Install WoeUSB's Dependencies
+$ mk-build-deps # NOTE: Currently, due to Debian Bug #679101, this command
+# will fail if the source path contains spaces.
+
+# to determine the version number (replace the <version> tag below with what is displayed)
+$ ls -ah
+
+# using debian package manager
+$ sudo dpkg -i woeusb-build-deps_<version>_all.deb
+
+# using gdebi as the README suggests
+$ sudo gdebi woeusb-build-deps_<version>_all.deb
+
+# Build the DEB package
+$ dpkg-buildpackage -uc -b # NOTE: Currently, due to a bug in the build system, this command 
+# will fail if the source's path contains space or single quotes, refer to issue #84 for details
+
+# The .deb will be in your home folder (if that's where you started)
+$ cd ..
+
+# Use the list command to determine the version and architecture of you deb file and replace
+# <version> and <architecture> with the corresponding strings
+ls -ah
+
+# to install using the debian package manager 
+dpkg -i woeusb_<version>_<architecture>.deb
+
+# to install using gdebi
+$ sudo gdebi ../woeusb_<version>_<architecture>.deb
+
+# to remove the extra files in the working directory (though you might want to save the .deb file)
+$ rm -r WoeUSB 
+
+
 ## License
 WoeUSB is distributed under the [GPL license](https://github.com/slacka/WoeUSB/blob/master/COPYING).
